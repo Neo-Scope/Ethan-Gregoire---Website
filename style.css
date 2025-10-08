@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
+
+
+:root {
+    --base-color: ;
+    --text-color: ;
+    --primary-color: ;
+    --secondary-color: ;
+    --color-1: ;
+    --color-2: ;
+    --color-3: ;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: mer;
+}
