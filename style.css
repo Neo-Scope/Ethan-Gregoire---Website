@@ -18,6 +18,71 @@
     box-sizing: border-box;
 }
 
+
 html {
-    font-family: mer;
+    font-family: Merriweather, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+}
+
+body {
+    padding: 1em;
+    background-color: var(--base-color); /* <-- base color is b*/
+}
+
+h1, h2, h3 {
+    font-family: Merriweather, Poppins, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+nav {
+    margin: 1em auto 3em auto;
+    width: min(1000px, 100%);  /*<-- means nav bar can grow up to 1000px, but never grow wider than the screen size*/
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    gap: 2em;
+}
+
+nav li:first-child {
+    margin-right: auto;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+header, section {
+    margin: 2em auto;
+    width: min(75em, 100%);
+    background-color: var(--color-1); /*<-- color-1 is a light cream color*/
+    padding: min(2em, 15%);
+    border-radius: 1em;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /*<-- allows the content to stack on smaller screens ( good for phones ;) ) */
+    gap: 3em;
+}
+
+header img {
+    max-width: 100%;
+    border-radius: 1em;
+    object-fit: cover;
+    object-position: bottom;
+}
+
+.text-container {
+    flex: 0 1 34em; /*<-- 0 means the text container won't grow, 1 means shrink if needed, 34em is the flex spaces (aka the preferred width)  */
+    /*this means the text container will be 34em wide, but will shrink if needed, and won't grow */
+    
 }
