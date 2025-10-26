@@ -2,13 +2,13 @@
 
 
 :root {
-    --base-color: ;
-    --text-color: ;
-    --primary-color: ;
-    --secondary-color: ;
-    --color-1: ;
-    --color-2: ;
-    --color-3: ;
+    --base-color: #ffffff;
+    --text-color: #000000;
+    --primary-color: orange;
+    --secondary-color: rgb(98, 83, 236);
+    --color-1: #F9F6F3;
+    --color-2: #F3F7F9;
+    --color-3: #F6F3F9;
 }
 
 
@@ -74,6 +74,10 @@ header, section {
     gap: 3em;
 }
 
+.flex-container img {
+    border-radius: 1em; /*<--Gives square edges a curved to them*/
+}
+
 header img {
     max-width: 100%;
     border-radius: 1em;
@@ -84,5 +88,152 @@ header img {
 .text-container {
     flex: 0 1 34em; /*<-- 0 means the text container won't grow, 1 means shrink if needed, 34em is the flex spaces (aka the preferred width)  */
     /*this means the text container will be 34em wide, but will shrink if needed, and won't grow */
-    
+}
+
+/* The "Hey Friends" line */
+h1 { 
+    font-size: 2.5rem;
+}
+
+/* The sentence under "Hey Friends" */
+.text-container p {
+    margin: .75em 0 1em 0; /* margins for top, L, R, and bottom*/
+    font-size: 1.25rem;
+}
+
+.cta-button {
+    display: inline-block;
+    text-decoration: none;
+    color: white; 
+    background-color: var(--primary-color); /*<-- primary color is a medium blue*/
+    padding: .75em 1.25em;
+    border-radius: 0.5em;
+    font-weight: 600;
+}
+
+.secondary {
+    background-color: var(--secondary-color); 
+}
+
+section {
+    padding: 3em min(2em, 15%);
+    background-color: var(--color-2);
+    text-align: center;
+}
+
+/*The "What I do" line*/
+h2 {
+    font-size: 2rem;
+}
+
+section p {
+    margin: 1em;
+    font-size: 1.25rem;
+}
+
+section#my-work {
+    background-color: var(--color-3);
+}
+
+.grid-container {
+    margin-top: 3em;
+    margin-bottom: 3em;
+    display: grid; /*<-- turns it into a css grid layout*/
+    width: 100%;
+    grid-template-columns: repeat(4, 1fr); /*1fr stands for one fraction of the available space (this way they're all the same size)*/
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+    "img-1 img-1 img-2 img-2" /*Think of the grid-template columns like this:*/
+    "img-1 img-1 img-2 img-2"; /*[] [] [] [] */
+    gap: 1em;                  /*[] [] [] [] */
+}
+
+.grid-container img {
+    height: 100%;
+    width: 100%;
+    border-radius: .5em;
+    transition: 100ms ease; /*used in conjunction with scale below*/
+}
+
+.grid-container img:hover {
+    scale: 1.05; /*this creates a zoom effect on mouse hover*/
+}
+
+details {
+    margin-top: 1em;
+    background-color: var(--base-color);
+    border-radius: 1em;
+}
+
+details summary {
+    padding: 1em;
+    font-size: 1.7rem;
+    font-family: Merriweather, Poppins, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+details p {
+    /*padding top stays 0 so you don't mess up how it looks when the container is collapsed*/
+    padding: 0 2em 2em 2em;
+}
+
+footer {
+    padding-bottom: 1.5em;
+    text-align: center;
+}
+
+footer a {
+    margin: 0 1em;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/*At 988 pixels, the flex wrap will rearrange the elements vertically.
+When that happens, a few other changes need to happen too. 
+That's what the media query below is for: 
+for making the website look good on mobile devices, not just PC*/
+@media(max-width: 988px) {
+    header {
+        text-align: center; /*<-- this looks better on narrow screens*/
+    }
+
+    header .text-container {
+        padding-top: 0; /*<-- removes extra spacing above the text block to make thing look tighter and more mobile friendly*/
+    }
+}
+
+@media(max-width: 640px){
+    nav li {
+        display: none; /*<-- hides nav links on very small screens to save space*/
+    }
+
+    nav li:first-child,
+    nav li:last-child {
+        display: block; /*<-- keeps the first and last nav links visible since they're the most important*/
+    }
+
+    header {
+        margin-top: 0;
+    }
+
+    .cta-button {
+        margin-top: .5em; /*<-- Creates space between the LinkedIn (yellow) button and the Portfolio (purple) button*/
+        width: 100%;
+    }
+
+    .grid-container {
+       display: flex; 
+       flex-direction: column;
+    }
+
+    .text-container p {
+        font-size: 1rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
 }
